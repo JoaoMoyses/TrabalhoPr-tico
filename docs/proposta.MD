@@ -4,7 +4,7 @@
 
 A proposta deve apresentar uma ideia simples, clara e viável para ser desenvolvida com Python e Pygame dentro do prazo disponível.
 
-## 1. Meteore-Evasion
+## 1. Meteor-Evasion
 
 
 
@@ -208,9 +208,10 @@ Exemplo:
 
 Recursos previstos:
 
-> Escreva aqui.
+**Listas (List):** Utilizada para gerenciar dinamicamente todos os meteoros ativos na tela (adicionando novos objetos gerados e removendo os meteoros que ultrapassam o limite inferior do cenário para otimizar a memória).
+* **Dicionários (Dict):** Utilizado para encapsular e organizar o estado do jogo e do jogador (ex: `status_jogador = {'vidas': 3, 'pontos': 0, 'velocidade': 5}`).
+* **Tuplas (Tuple):** Utilizadas para valores imutáveis de configuração, como as dimensões da janela do jogo (ex: `RESOLUCAO = (800, 600)`) e cores em formato RGB.
 
-Caso não pretenda utilizar recursos externos, escreva:
 
 > Não pretendemos utilizar recursos externos.
 
@@ -231,10 +232,10 @@ Exemplos:
 
 Dificuldades previstas:
 
-- Dificuldade 1:
-- Dificuldade 2:
-- Dificuldade 3:
 
+Dificuldade 1:esafiador, mas que não se torne impossível logo no início.
+Dificuldade 2: ** Garantir a correta exclusão de objetos da lista de meteoros assim que eles saem da tela, evitando vazamentos de memória (*memory leaks*).
+Dificuldade 3: **Configurar os testes unitários (`unittest` ou `pytest`) de forma isolada da biblioteca Pygame para validar estritamente a lógica matemática e de estados.
 ## 14. Escopo mínimo para a entrega final
 
 Descreva qual será a versão mínima aceitável do jogo.
@@ -247,7 +248,7 @@ Exemplo:
 
 Escopo mínimo:
 
-> Escreva aqui.
+O escopo mínimo  consiste em: uma janela Pygame funcional, movimentação fluida da nave, geração procedural e queda de meteoros, sistema de colisão preciso (usando `pygame.Rect`), controle de vidas e pontos na tela, tela de Game Over funcional com opção de reinício e salvamento estável do *High Score* em um arquivo local.
 
 ## 15. Possíveis melhorias, caso haja tempo
 
@@ -267,6 +268,8 @@ Exemplos:
 
 Melhorias possíveis:
 
-- Melhoria 1:
-- Melhoria 2:
-- Melhoria 3:
+- Melhoria 1:Sistema de Itens Coletáveis (Power-ups)**
+  Fazer com que, além dos meteoros, caiam esporadicamente do topo da tela itens benéficos, como um "Coração" (para recuperar 1 vida perdida) ou um "Escudo Temporário" (que torna a nave invulnerável por 5 segundos). Isso enriquece a mecânica, exigindo que o jogador decida entre desviar ou arriscar para pegar o item.
+- Melhoria 2:Sons e Efeitos Sonoros (Áudio)**
+  Utilizar o módulo `pygame.mixer` para adicionar uma música de fundo em loop com temática espacial e efeitos sonoros simples de 8-bits: um som de "explosão" quando a nave for atingida, um som de "bip" ao marcar pontos e um som de "Game Over" ao final da partida.
+- Melhoria 3:Implementar a funcionalidade de pausar o jogo ao pressionar a tecla `P` ou `SPACE`, congelando a descida dos meteoros e abrindo uma pequena sobreposição na tela. Adicionalmente, caso haja tempo para a parte visual, substituir os retângulos coloridos por sprites em formato de imagem (PNG) para a nave e os meteoros.
