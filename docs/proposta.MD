@@ -1,12 +1,12 @@
 # Proposta Inicial do Jogo
 
-Este documento deve ser preenchido pelo grupo na Semana 1 do projeto.
+
 
 A proposta deve apresentar uma ideia simples, clara e viável para ser desenvolvida com Python e Pygame dentro do prazo disponível.
 
-## 1. Nome provisório do jogo
+## 1. Meteore-Evasion
 
-Escreva aqui o nome provisório do jogo.
+
 
 Exemplo:
 
@@ -16,14 +16,14 @@ Exemplo:
 
 Liste os integrantes do grupo.
 
-- Nome 1:
-- Nome 2:
+- Nome 1: João Victor Santos
+- Nome 2: Thales
 - Nome 3:
 - Nome 4:
 
 ## 3. Tipo de jogo
 
-Indique o tipo de jogo que será desenvolvido.
+Jogo de desviar de obstáculos (Estilo Arcade / Sobrevivência Espacial).
 
 Exemplos:
 
@@ -42,40 +42,20 @@ Exemplos:
 
 Tipo escolhido pelo grupo:
 
-> Escreva aqui.
+> Jogo de desviar de obstaculos
 
 ## 4. Descrição geral do jogo
 
-Explique, em poucas linhas, como o jogo funcionará.
-
-Procure responder:
-
-- O que aparece na tela?
-- O que o jogador controla?
-- O que o jogador precisa fazer?
-- Quais desafios aparecem durante a partida?
-
 Descrição:
 
-> Escreva aqui.
+*Meteor Evasion** é um jogo digital 2D focado em agilidade e sobrevivência. O jogador assume o controle de uma nave espacial localizada na parte inferior da tela e deve se movimentar horizontalmente para desviar de uma chuva de meteoros que caem continuamente do topo do cenário. À medida que o tempo passa, a velocidade de queda dos meteoros aumenta e a frequência de surgimento se intensifica, exigindo reflexos cada vez mais rápidos do jogador.
 
 ## 5. Objetivo do jogador
 
-Explique qual é o objetivo principal do jogador.
-
-Exemplos:
-
-- coletar o maior número possível de itens;
-- sobreviver pelo maior tempo possível;
-- chegar até o final do labirinto;
-- acertar alvos;
-- responder perguntas corretamente;
-- evitar obstáculos;
-- quebrar todos os blocos.
 
 Objetivo:
 
-> Escreva aqui.
+O objetivo principal é sobreviver o maior tempo possível, esquivando-se dos meteoros para acumular a maior pontuação possível e registrar um novo recorde (*High Score*) no ranking do jogo.
 
 ## 6. Regras principais
 
@@ -110,8 +90,7 @@ Exemplos:
 - quebrar todos os blocos.
 
 Condição de vitória:
-
-> Escreva aqui.
+Por se tratar de um jogo no estilo *endless* (infinito), não há uma condição de vitória definitiva ou um "fim do jogo por zerar". A vitória pessoal do jogador consiste em superar o recorde de pontuação previamente salvo no sistema.
 
 ## 8. Condição de derrota ou encerramento
 
@@ -126,8 +105,7 @@ Exemplos:
 - deixar a bola cair, no caso de Breakout ou Pong.
 
 Condição de derrota ou encerramento:
-
-> Escreva aqui.
+A partida é encerrada imediatamente (tela de *Game Over*) quando o contador de vidas do jogador chega a zero (0).
 
 ## 9. Elementos previstos no jogo
 
@@ -141,7 +119,7 @@ Exemplo:
 
 Descrição:
 
-> Escreva aqui.
+Uma nave espacial com movimentação lateral restrita às bordas da tela.
 
 ## Obstáculos, inimigos ou desafios
 
@@ -151,7 +129,7 @@ Exemplo:
 
 Descrição:
 
-> Escreva aqui.
+** Elementos que surgem em posições X aleatórias no topo da tela e se movem verticalmente para baixo.
 
 ## Itens, alvos ou objetos de interação
 
@@ -161,7 +139,7 @@ Exemplo:
 
 Descrição:
 
-> Escreva aqui.
+ Exibição em tempo real da pontuação atual, número de vidas restantes através de ícones ou texto, e o Recorde Atual (*High Score*).
 
 ## Pontuação, vidas, tempo ou progresso
 
@@ -171,7 +149,7 @@ Exemplo:
 
 Descrição:
 
-> Escreva aqui.
+ Exibição em tempo real da pontuação atual, número de vidas restantes através de ícones ou texto, e o Recorde Atual (*High Score*).
 
 ## 10. Controles previstos
 
@@ -188,9 +166,10 @@ Exemplo:
 
 Controles do grupo:
 
-- Tecla/comando:
-- Tecla/comando:
-- Tecla/comando:
+- Tecla/comando:**Mover para a Esquerda:** Tecla de Seta para a Esquerda (`LEFT ARROW`) ou Tecla `A`.
+- Tecla/comando:**Mover para a Direita:** Tecla de Seta para a Direita (`RIGHT ARROW`) ou Tecla `D`.
+- Tecla/comando:**Reiniciar o Jogo:** Tecla `R` (ativa apenas na tela de *Game Over*).
+- Tecla/comando:**Sair do Jogo:** Tecla `ESC` ou clicando no botão fechar da janela.
 
 ## 11. Organização inicial do código
 
@@ -206,8 +185,15 @@ Exemplo:
 
 Organização planejada:
 
-> Escreva aqui.
+### 11. Organização Inicial do Código
+Para garantir a modularização e a clareza do projeto, o código será estruturado da seguinte forma:
 
+* `main.py`: Arquivo central responsável por inicializar o Pygame, carregar as configurações iniciais e disparar a execução do jogo.
+* `src/game.py`: Contém a classe ou função principal do loop do jogo (`game_loop`), gerenciando os estados (Menu, Jogando, Game Over) e a taxa de quadros (FPS).
+* `src/config.py`: Centraliza todas as constantes do projeto, como as dimensões da janela (800x600), a paleta de cores (RGB), caminhos de arquivos e taxas de velocidade padrão.
+* `src/elements.py`: Contém a lógica de atualização e renderização dos elementos visuais do jogo, como a movimentação da Nave e o surgimento/queda dos Meteoros.
+* `src/mechanics.py`: Concentra as funções puramente lógicas do jogo, como o cálculo de colisão entre retângulos (`pygame.Rect`), controle do sistema de vidas e progressão de dificuldade a cada 10 segundos.
+* `src/data.py`: Responsável exclusivamente pelas funções de persistência de dados, englobando a leitura e a escrita do recorde (*High Score*) no arquivo local.
 
 ## 12. Recursos externos previstos
 
