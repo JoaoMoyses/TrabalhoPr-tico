@@ -1,13 +1,21 @@
-# Configurações centrais do jogo (tela, cores e caminhos de arquivos).
+# src/config.py
+
+# Configurações da Janela
 LARGURA_TELA = 800
 ALTURA_TELA = 600
-FPS = 60
+FPS = 60 
 
-TITULO_JOGO = "Projeto Final - Pygame"
-
-BRANCO = (255, 255, 255)
+# Cores (Padrão RGB)
 PRETO = (0, 0, 0)
-CINZA = (212,212,212)
+BRANCO = (255, 255, 255)
+VERMELHO = (255, 0, 0)
+AZUL = (0, 100, 255)
 
-CAMINHO_RECORDE = "data/recorde.txt"
-CAMINHO_SPRITES = "assets/imagens/spritesheet.bmp"
+# Configurações do Jogador (Nave)
+LARGURA_NAVE = 50     # <-- O erro está avisando que faltou isso aqui!
+ALTURA_NAVE = 30
+VELOCIDADE_NAVE = 5
+
+# Configurações do Meteoro
+TAMANHO_METEORO = 40
+VELOCIDADE_METEORO = 3
