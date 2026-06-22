@@ -1,91 +1,67 @@
-# Nome do Jogo
-
+Meteor Evasion
 Projeto final da disciplina de Introdução a Algoritmos/Programação, desenvolvido com Python e Pygame.
 
-Este repositório é um template para os grupos da disciplina. A proposta é começar com uma base funcional e evoluir o jogo ao longo do semestre.
+Este repositório contém o jogo desenvolvido como avaliação final, aplicando conceitos de lógica de programação, estruturas de dados, manipulação de arquivos e modularização.
 
-## Integrantes do grupo
+Integrantes do grupo
+João Victor Santos
 
-- Nome do integrante 1
-- Nome do integrante 2
-- Nome do integrante 3
-- Nome do integrante 4
+Thales
 
-## Estrutura do projeto
+Estrutura do projeto
+main.py: ponto de entrada da aplicação.
 
-- `main.py`: ponto de entrada da aplicação.
-- `src/`: código-fonte principal do jogo (loop, regras, sprites e dados).
-- `assets/`: imagens, fontes e sons.
-- `data/`: arquivos persistentes (recorde/ranking).
-- `tests/`: testes unitários com `pytest`.
-- `docs/`: documentação do projeto, incluindo proposta inicial.
+src/: código-fonte principal do jogo (loop, regras, físicas e dados).
 
-## Descrição do jogo
+assets/: imagens (imagens/) e sons (sons/) utilizados no jogo.
 
-Descreva brevemente a ideia principal do jogo.
+data/ ou raiz: arquivos persistentes (como o recorde.txt).
 
-Exemplo:
+tests/: testes unitários de validação da lógica e arquivos.
 
-> O jogo consiste em controlar um personagem que deve coletar moedas e evitar obstáculos. O jogador ganha pontos ao coletar itens e perde vidas ao colidir com obstáculos. A partida termina quando o tempo acaba ou quando o jogador perde todas as vidas.
+docs/: documentação do projeto, incluindo a proposta inicial.
 
-## Objetivo do jogador
+Descrição do jogo
+Meteor Evasion é um jogo arcade 2D de sobrevivência espacial. O jogador controla uma nave que se movimenta na parte inferior da tela e deve desviar de uma chuva constante de meteoros que caem do espaço. À medida que o jogador sobrevive e acumula pontos, a velocidade de queda dos meteoros aumenta, tornando o jogo progressivamente mais difícil. O jogo também conta com um sistema de pontuação máxima (High Score) salva em arquivo.
 
-Explique o que o jogador precisa fazer para vencer ou avançar no jogo.
+Objetivo do jogador
+O objetivo é sobreviver o maior tempo possível, esquivando-se dos meteoros para acumular pontos e tentar quebrar o recorde histórico salvo no jogo.
 
-Exemplo:
+Regras do jogo
+O jogador inicia a partida com 3 vidas.
 
-> O objetivo é coletar a maior quantidade possível de itens antes que o tempo acabe, evitando colisões com os obstáculos.
+A cada meteoro que sai da tela com sucesso (sem bater na nave), o jogador ganha 1 ponto.
 
-## Regras do jogo
+A cada 10 pontos acumulados, a velocidade dos meteoros aumenta (aumento de dificuldade).
 
-Liste as principais regras do jogo.
+Colidir com um meteoro reduz a quantidade de vidas em 1.
 
-Exemplo:
+A partida termina (Game Over) quando o jogador perde todas as vidas.
 
-- O jogador se movimenta usando as setas do teclado.
-- Cada item coletado aumenta a pontuação.
-- Colidir com um obstáculo reduz a quantidade de vidas.
-- A partida termina quando o jogador perde todas as vidas ou quando o tempo acaba.
+Se a pontuação final for maior que o recorde atual, o novo recorde é salvo automaticamente.
 
-## Controles
+Controles
+Seta para a Esquerda ou Tecla A: Mover a nave para a esquerda.
 
-Informe as teclas ou comandos utilizados no jogo.
+Seta para a Direita ou Tecla D: Mover a nave para a direita.
 
-Exemplo:
+Tecla R: Reiniciar a partida (ativo apenas na tela de Game Over).
 
-- Seta para cima: mover para cima
-- Seta para baixo: mover para baixo
-- Seta para esquerda: mover para esquerda
-- Seta para direita: mover para direita
-- Espaço: realizar ação
-- ESC: sair do jogo
+ESC ou Botão Fechar: Sair do jogo.
 
-## Como executar o projeto
+Como executar o projeto
+1. Clonar o repositório e rodar
+Abra o terminal e execute os seguintes comandos:
 
-### 1. Clonar o repositório
-
-```bash
+Bash
 git clone LINK_DO_REPOSITORIO
 cd NOME_DA_PASTA
 pip install -r requirements.txt
 python main.py
-```
+Como executar os testes
+Para validar a integridade da lógica de gravação e leitura de recordes, execute:
 
-## Como executar os testes
-
-```bash
+Bash
 python -m pytest
-```
-
-## Checklist mínimo para entrega
-
-- Preencher este README com nome final, descrição real, regras e controles do jogo.
-- Atualizar `docs/proposta.MD` com a proposta do grupo.
-- Garantir que o jogo executa com `python main.py`.
-- Garantir que os testes passam com `pytest`.
-
-## Observações para os alunos
-
-- Mantenham o código organizado em módulos pequenos e com responsabilidade clara.
-- Comentem partes importantes da lógica, principalmente regras do jogo.
-- Registrem decisões técnicas no README do grupo ao longo do desenvolvimento.
+# ou, se o seu arquivo se chamar test_logica.py:
+python test_logica.py

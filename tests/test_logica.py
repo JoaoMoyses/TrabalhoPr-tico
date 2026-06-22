@@ -1,31 +1,26 @@
-from src.funcoes import calcular_pontos, jogador_perdeu, limitar_valor
+import unittest
+import os
+from src.dados import carregar_recorde, salvar_recorde
 
+class TestLogicaJogo(unittest.TestCase):
+    
+    def test_leitura_escrita_recorde(self):
+        """Testa se o sistema consegue salvar e carregar o recorde corretamente."""
+        arquivo_teste = "recorde_temporario_teste.txt"
+        recorde_teste = 999
+        
+        # Testa a função salvar_recorde
+        salvar_recorde(arquivo_teste, recorde_teste)
+        
+        # Testa a função carregar_recorde
+        recorde_lido = carregar_recorde(arquivo_teste)
+        
+        # Verifica se o que foi lido é igual ao que foi salvo
+        self.assertEqual(recorde_lido, recorde_teste)
+        
+        # Limpa o arquivo temporário depois do teste
+        if os.path.exists(arquivo_teste):
+            os.remove(arquivo_teste)
 
-def test_calcular_pontos():
-    """Deve somar corretamente os pontos atuais com os pontos ganhos."""
-    assert calcular_pontos(10, 5) == 15
-
-
-def test_jogador_perdeu_com_zero_vidas():
-    """Deve indicar derrota quando o total de vidas chega a zero."""
-    assert jogador_perdeu(0) is True
-
-
-def test_jogador_nao_perdeu_com_vidas():
-    """Nao deve indicar derrota quando o jogador ainda tem vidas."""
-    assert jogador_perdeu(3) is False
-
-
-def test_limitar_valor_abaixo_do_minimo():
-    """Deve retornar o limite minimo quando o valor informado for menor."""
-    assert limitar_valor(-5, 0, 100) == 0
-
-
-def test_limitar_valor_acima_do_maximo():
-    """Deve retornar o limite maximo quando o valor informado for maior."""
-    assert limitar_valor(150, 0, 100) == 100
-
-
-def test_limitar_valor_dentro_do_intervalo():
-    """Deve manter o valor original quando ele ja estiver no intervalo."""
-    assert limitar_valor(50, 0, 100) == 50
+if __name__ == '__main__':
+    unittest.main()
